@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basketball</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+    <script>
+        // Get the canvas element
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Basketball ball
+        function drawBasketballBall(x, y, radius) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            ctx.fillStyle = "#FF4500";
+            ctx.fill();
+            ctx.closePath();
+
+            // Black lines
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+
+            // Draw eight curved lines
+            for (var angle = 0; angle < Math.PI * 2; angle += Math.PI / 4) {
+                var startX = x + Math.cos(angle) * radius;
+                var startY = y + Math.sin(angle) * radius;
+                var endX = x + Math.cos(angle + Math.PI) * radius;
+                var endY = y + Math.sin(angle + Math.PI) * radius;
+
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
+            }
+
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+        // Basketball board
+        function drawBasketballBoard() {
+            // Pole
+            ctx.beginPath();
+            ctx.rect(180, 200, 40, 200);
+            ctx.fillStyle = "#8B4513";
+            ctx.fill();
+            ctx.closePath();
+
+            // Backboard
+            ctx.beginPath();
+            ctx.rect(100, 140, 200, 120)
+            ctx.fillStyle = "#1D9717";
+            ctx.fill();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.rect(175, 190, 50, 50);
+            ctx.fillStyle = "#000000";
+            ctx.fill();
+            ctx.closePath();
+
+            // Rim
+            ctx.beginPath();
+            ctx.arc(200, 270, 30, 0, Math.PI * 2, false);
+            ctx.strokeStyle = "#FFD700";
+            ctx.lineWidth = 5;
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+
+
+        // Draw basketball ball and board
+
+        drawBasketballBall(100, 375, 25);
+        drawBasketballBoard();
+
+    </script>
+</body>
+</html>
