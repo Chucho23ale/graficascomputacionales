@@ -23,7 +23,4 @@ Y como inspiración o referencia tomaré el auditorio de mi pueblo donde yo jueg
 
 ### Herramienta Utilizada
 
-WebGL es un estándar de web abierta para representar gráficos en cualquier navegador compatible, 
-sin necesidad de plugins adicionales. WebGL se integra totalmente con todos los estándares web del 
-navegador y permite el uso acelerado por GPU de procesamiento de imágenes y efectos como parte del 
-lienzo de la página web.
+Para el proyecto utilizare Unity para crear mi escena.
